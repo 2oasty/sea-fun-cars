@@ -28,6 +28,9 @@
 const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
 const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
 const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+const KONG = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
+const REVERSE = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
+const REVERSESAFETY = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
 
 // This is an array of strings (TV show titles)
 let moves = [
@@ -35,9 +38,12 @@ let moves = [
     { name: "Safety Vault", desc: "Will Smith", type: "Roll", difficulty: 1, creator: "?", image: FRESH_PRINCE_URL },
     { name: "Speed Vault", desc: "Larry?", type: "Vault", difficulty: 2, creator: "?", image: CURB_POSTER_URL },
     { name: "Dash Vault", desc: "Pink", type: "Floor", difficulty: 3, creator: "?", image: EAST_LOS_HIGH_POSTER_URL },
-    //    {name: "Kong Vault", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Reverse Safety Vault", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Reverse Vault", type: "Vault", difficulty: 1, creator: ""},
+    { name: "Kong Vault", desc: "Will Smith", type: "Jump", difficulty: 2, creator: "?", image: KONG },
+    { name: "Reverse Safety Vault", desc: "Larry?", type: "Vault", difficulty: 4, creator: "?", image: REVERSE },
+    { name: "Reverse Vault", desc: "Pink", type: "Bar", difficulty: 5, creator: "?", image: REVERSESAFETY },
+    { name: "Kong Vault", desc: "Will Smith", type: "Jump", difficulty: 2, creator: "?", image: KONG },
+    { name: "Reverse Safety Vault", desc: "Larry?", type: "Vault", difficulty: 4, creator: "?", image: REVERSE },
+    { name: "Reverse Vault", desc: "Pink", type: "Bar", difficulty: 5, creator: "?", image: REVERSESAFETY },
     //    {name: "Lazy Vault", type: "Vault", difficulty: 1, creator: ""},
     //    {name: "Thief Vault", type: "Vault", difficulty: 1, creator: ""},
     //    {name: "Shoulder Roll", type: "Roll", difficulty: 1, creator: ""},
@@ -261,18 +267,18 @@ function resetFilter(){
     let numResults = document.getElementById("result-number");
     numResults.style.display = 'none';
    
-    const sliderElement = document.getElementById("slider");
+    let sliderElement = document.getElementById("slider");
     sliderElement.value = 3;
-    const rangeVal = document.getElementById("rangeValue");
+    let rangeVal = document.getElementById("rangeValue");
     rangeVal.innerHTML = 3;
     sliderDifficulty = 3;
 
-    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel = document.querySelector(".sortText");
     dropdownBtnLabel.innerHTML = "Sort By:";
     dropdownBtn = document.getElementById("droppedBtns");
     dropdownBtn.style.display = "none";
 
-    const searchBarInput = document.getElementById("searchBar");
+    let searchBarInput = document.getElementById("searchBar");
     searchBarInput.value = "";
 
     console.log("Cards Reset")
@@ -295,7 +301,7 @@ function sortDropdownMenu(){
 }
 
 function sortByName(){
-    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel = document.querySelector(".sortText");
     dropdownBtnLabel.innerHTML = "Sort By:";
 
     moves.sort(function(a, b){
@@ -321,7 +327,7 @@ function sortByName(){
 }
 
 function sortByType(){
-    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel = document.querySelector(".sortText");
     dropdownBtnLabel.innerHTML = "Sort By:";
 
     moves.sort(function(a, b){
@@ -347,7 +353,7 @@ function sortByType(){
 }
 
 function sortByDifficulty(){
-    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel = document.querySelector(".sortText");
     dropdownBtnLabel.innerHTML = "Sort By:";
 
     moves.sort(function(a, b){
@@ -373,7 +379,7 @@ function sortByDifficulty(){
 }
 
 function sortByCreator(){
-    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel = document.querySelector(".sortText");
     dropdownBtnLabel.innerHTML = "Sort By:";
 
     moves.sort(function(a, b){

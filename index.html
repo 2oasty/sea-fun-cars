@@ -5,6 +5,8 @@
     <title>Parkour and Freerunning Moves | Home</title>
     <meta name="description" content="A Catalog of Parkour and Freerunning Moves of Varying Difficulty">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 
@@ -13,28 +15,43 @@
         <h1 class="title">Parkour and Freerunning Moves</h1>
     </header>
 
+    <div class="searchBarSection">
+        <div class="searchBarContainer">
+            <span class="material-symbols-outlined">search</span>
+            <input id="searchBar" type="text" placeholder="Search for a move" />
+        </div>
+    </div>
+
     <div class="operations">
-        <div class="sortByBtn">
-            <button id="dropBtn" onclick="sortDropdownMenu();">Sort By:</button>
+
+        <div class="filterSection">
+            <h2>Filter by Difficulty:</h2>
+            <input class="mySlider" id="slider" type="range" min="1" max="5" value="3" step="1"
+                oninput="rangeValue.innerText = this.value">
+            <p id="rangeValue">3</p>
+            <span onclick="filterDifficulty();">Filter</span>
+        </div>
+
+
+        <div class="sortBtn" onclick="sortDropdownMenu();">
+            <div>
+                <span class="material-symbols-outlined">sort</span>
+
+                <span class="sortText">Sort By:</span>
+            </div>
+
             <div id="droppedBtns" style="display:none; position:absolute">
-                <button onclick="sortByName();">Name</button>
-                <button onclick="sortByType();">Type</button>
-                <button onclick="sortByDifficulty();">Difficulty</button>
-                <button onclick="sortByCreator();">Creator</button>
+                <span style="display:block" onclick="sortByName();">Name</span>
+                <span style="display:block" onclick="sortByType();">Type</span>
+                <span style="display:block" onclick="sortByDifficulty();">Difficulty</span>
+                <span style="display:block" onclick="sortByCreator();">Creator</span>
             </div>
         </div>
 
-        <div class="filterSection">
-            <input id="slider" type="range" min="1" max="5" value="3" step="1" oninput="rangeValue.innerText = this.value">
-            <label for="slider">Difficulty</label>
-            <p id="rangeValue">3</p>
-            <button onclick="filterDifficulty();">Filter</button>
+        <div class="resetBtn" onclick="resetFilter();">
+            <span>Reset</span>
         </div>
 
-
-        <button onclick="resetFilter();">Reset</button>
-
-        <input id="searchBar" type="text" placeholder="Search for a move"/>
     </div>
 
     <div id="result-number" style="display:none">

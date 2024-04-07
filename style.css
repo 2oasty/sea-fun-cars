@@ -20,6 +20,7 @@ body {
 
 #card-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 20px;
 }
@@ -82,29 +83,117 @@ button {
    cursor: pointer;
 }
 
-.operations {
-    border: 5px solid #666
+.searchBarSection {
+    display: flex;
+    padding: 15px;
+    justify-content: center;
 }
 
-.sortByBtn {
+.searchBarContainer {
+    width: 50%;
+    display: flex;
     position: relative;
-    display: inline-block;
-    border: 5px solid #666
+    border: 3px solid #666;
+    border-radius: 25px;
+    padding: 10px;
+    height: 20px;
+    align-items: center;
+}
+
+#searchBar {
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    margin-left: 5px;
+    border: none;
+    outline: none;
+
+}
+
+.operations {
+    position: relative;
+    /* position: sticky;
+    top: 0; */
+    border: 5px solid #666;
+    background-color: white;
 }
 
 .filterSection {
     display: inline-block;
-    border: 5px solid #666
+    border: 5px solid #666;
 }
 
-#searchBar {
-    position: relative;
-    border: 5px solid #666
+#slider {
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    background: grey;
+    border-radius: 15px;
+}
 
+#slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
 #result-number {
     border: 5px solid #666;
     text-align: center;
     font-size: 30px;
+}
+
+.sortBtn {
+    display: inline-block;
+    position: relative;
+    right: 0;
+}
+
+.sortBtn:hover {
+    cursor: pointer;
+}
+
+.sortText {
+    position: relative;
+    bottom: 5px;
+    font-size: 20px;
+    display: inline-block;
+
+}
+
+#droppedBtns {
+    background-color: grey;
+    padding: 10px;
+
+}
+
+#droppedBtns span {
+    font-size: 20px;
+}
+
+.resetBtn {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 30%;
+    border: 3px solid #666;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.resetBtn:hover {
+    cursor: pointer;
 }
