@@ -101,6 +101,7 @@ let moves = [
 
 // Create deep copy
 let movesCopy = [...moves];
+let filteredMoves = [...moves];
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 
@@ -163,8 +164,15 @@ function onLoad(){
 
     // Adds slider listener after page loaded, obtains value of slider
     sliderDifficulty = 3;
-    const sliderElement = document.getElementById("slider")
-    sliderElement.addEventListener("change", (event) => {sliderDifficulty = event.target.value})
+    const sliderElement = document.getElementById("slider");
+    sliderElement.addEventListener("change", (event) => {
+        sliderDifficulty = event.target.value
+    });
+
+    const searchBar = document.getElementById("searchBar");
+    searchBar.addEventListener("keyup", (event) => {
+        searchMove(event.target.value)
+    });
 }
 
 // Function to allow clicking of div to hide and show card text
@@ -239,11 +247,16 @@ function filterDifficulty(){
     //         moves = movesCopy;
     // }
 
+    filteredMoves = [...moves];
+
     showCards();
+
 }
+
 
 function resetFilter(){
     moves = [...movesCopy];
+    filteredMoves = [...movesCopy];
    
     let numResults = document.getElementById("result-number");
     numResults.style.display = 'none';
@@ -258,6 +271,9 @@ function resetFilter(){
     dropdownBtnLabel.innerHTML = "Sort By:";
     dropdownBtn = document.getElementById("droppedBtns");
     dropdownBtn.style.display = "none";
+
+    const searchBarInput = document.getElementById("searchBar");
+    searchBarInput.value = "";
 
     console.log("Cards Reset")
    
@@ -379,5 +395,40 @@ function sortByCreator(){
 
     console.log("Sorted cards by move creator")
     showCards();
+
+}
+
+
+function searchMove(searchValue){
+
+    console.log("Searching for moves including:", searchValue)
+
+    const searchedMove = moves.filter(move => {
+        return(move.name.toUpperCase().includes(searchValue.toUpperCase()))
+    });
+
+    moves = searchedMove;
+
+    let numResults = document.getElementById("result-number");
+    numResults.style.display = 'block';
+    numResults.innerHTML = "Number of results: ";
+
+    if (moves.length == 0){
+        console.log("No results found")
+        numResults.innerHTML = "No results found";
+    }
+    else {
+        console.log("Number of results: ", moves.length)
+        numResults.innerHTML = numResults.innerHTML + moves.length;
+    }
+
+    const searchBarInput = document.getElementById("searchBar");
+    if (searchBarInput.value == "") {
+        numResults.style.display = 'none';
+    }
+
+    showCards();
+
+    moves = filteredMoves;
 
 }

@@ -82,8 +82,17 @@ button {
    cursor: pointer;
 }
 
+.operations {
+    border: 5px solid #666
+}
 
 .sortByBtn {
     position: relative;
     display: inline-block;
+    border: 5px solid #666
+}
+
+.filterSection {
+    display: inline-block;
+    border: 5px solid #666
 }

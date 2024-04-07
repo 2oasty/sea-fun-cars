@@ -17,12 +17,10 @@
         <h2>Number of results: </h2>
     </div>
 
-    <div>
-        <input id="slider" type="range" min="1" max="5" value="3" step="1" oninput="rangeValue.innerText = this.value">
-        <label for="slider">Difficulty</label>
-        <p id="rangeValue">3</p>
+    <div class="operations">
 
-        <button onclick="filterDifficulty();">Filter</button>
+
+
         <div class="sortByBtn">
             <button id="dropBtn" onclick="sortDropdownMenu();">Sort By:</button>
             <div id="droppedBtns" style="display:none; position:absolute">
@@ -32,8 +30,18 @@
                 <button onclick="sortByCreator();">Creator</button>
             </div>
         </div>
+
+        <div class="filterSection">
+            <input id="slider" type="range" min="1" max="5" value="3" step="1" oninput="rangeValue.innerText = this.value">
+            <label for="slider">Difficulty</label>
+            <p id="rangeValue">3</p>
+            <button onclick="filterDifficulty();">Filter</button>
+        </div>
+
+
         <button onclick="resetFilter();">Reset</button>
 
+        <input id="searchBar" type="text" placeholder="Search for a move"/>
 
     </div>
 
