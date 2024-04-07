@@ -96,3 +96,15 @@ button {
     display: inline-block;
     border: 5px solid #666
 }
+
+#searchBar {
+    position: relative;
+    border: 5px solid #666
+
+}
+
+#result-number {
+    border: 5px solid #666;
+    text-align: center;
+    font-size: 30px;
+}
