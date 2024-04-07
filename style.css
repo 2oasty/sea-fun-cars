@@ -77,15 +77,16 @@ button {
 }
 
 .card button {
-   background-color: transparent;
-   border: none;
-   color: transparent;
-   cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    cursor: pointer;
 }
 
 .searchBarSection {
     display: flex;
-    padding: 15px;
+    padding-top: 30px;
+    padding-bottom: 10px;
     justify-content: center;
 }
 
@@ -107,28 +108,43 @@ button {
     margin-left: 5px;
     border: none;
     outline: none;
-
 }
 
 .operations {
     position: relative;
     /* position: sticky;
     top: 0; */
-    border: 5px solid #666;
+    /* border: 5px solid #666; */
+    border-bottom: 5px solid #666;
+    padding: 30px;
+    padding-right:50px;
+    padding-left:50px;
     background-color: white;
 }
 
 .filterSection {
+    position: relative;
     display: inline-block;
-    border: 5px solid #666;
+}
+
+.filterSection h2 {
+    display: inline-block;
+}
+
+#rangeValue {
+    display: inline-block;
+    font-size: 25px;
+    padding: 5px;
 }
 
 #slider {
     appearance: none;
-    width: 100%;
+    width: 300px;
     height: 15px;
     background: grey;
     border-radius: 15px;
+    bottom: 100px;
+    margin: 20px;
 }
 
 #slider::-webkit-slider-thumb {
@@ -148,10 +164,18 @@ button {
     cursor: pointer;
 }
 
-#result-number {
-    border: 5px solid #666;
-    text-align: center;
-    font-size: 30px;
+.filterSection span {
+    /* position: absolute; */
+    border: 3px solid #666;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 10px;
+    top: 50%;
+    font-size: 20px;
+}
+
+.filterSection span:hover {
+    cursor: pointer;
 }
 
 .sortBtn {
@@ -160,20 +184,26 @@ button {
     border: 3px solid #666;
     border-radius: 10px;
     padding: 10px;
-    right: 100px;
-    top: 25%;
     margin: 10px;
+    top: 41px;
+    right: 10vw;
 }
 
 .sortBtn:hover {
     cursor: pointer;
 }
 
+.sortContainer {
+    display: flex;
+    align-items: center;
+}
+
 .sortText {
     position: relative;
-    bottom: 5px;
     font-size: 20px;
     display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #droppedBtns {
@@ -181,7 +211,6 @@ button {
     background-color: grey;
     padding: 10px;
     border-radius: 10px;
-
 }
 
 #droppedBtns span {
@@ -196,15 +225,21 @@ button {
 .resetBtn {
     display: inline-block;
     position: absolute;
-    right: 0;
-    top: 30%;
     border: 3px solid #666;
     border-radius: 25px;
     padding: 10px;
     margin: 10px;
     font-size: 20px;
+    top: 42px;
+    right: 3vw;
 }
 
 .resetBtn:hover {
     cursor: pointer;
+}
+
+#result-number {
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
 }
