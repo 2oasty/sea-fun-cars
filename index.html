@@ -23,8 +23,18 @@
         <p id="rangeValue">3</p>
 
         <button onclick="filterDifficulty();">Filter</button>
-        <button onclick="sortByType();">Sort By Type</button>
+        <div class="sortByBtn">
+            <button id="dropBtn" onclick="sortDropdownMenu();">Sort By:</button>
+            <div id="droppedBtns" style="display:none; position:absolute">
+                <button onclick="sortByName();">Name</button>
+                <button onclick="sortByType();">Type</button>
+                <button onclick="sortByDifficulty();">Difficulty</button>
+                <button onclick="sortByCreator();">Creator</button>
+            </div>
+        </div>
         <button onclick="resetFilter();">Reset</button>
+
+
     </div>
 
     <div id="card-container">

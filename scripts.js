@@ -180,17 +180,7 @@ function clickToShow(cardContentDiv) {
 
 }
 
-// function quoteAlert() {
-//     console.log("Button Clicked!")
-//     alert("I guess I can kiss heaven goodbye, because it got to be a sin to look this good!");
-// }
-
-// function removeLastCard() {
-//     moves.pop(); // Remove last item in titles array
-//     showCards(); // Call showCards again to refresh
-// }
-
-
+// Filter feature
 const difficultyOne = moves.filter(move => move.difficulty == 1);
 const difficultyTwo = moves.filter(move => move.difficulty == 2);
 const difficultyThree = moves.filter(move => move.difficulty == 3);
@@ -253,26 +243,71 @@ function filterDifficulty(){
 }
 
 function resetFilter(){
-    moves = movesCopy;
+    moves = [...movesCopy];
+   
     let numResults = document.getElementById("result-number");
     numResults.style.display = 'none';
+   
     const sliderElement = document.getElementById("slider");
     sliderElement.value = 3;
     const rangeVal = document.getElementById("rangeValue");
     rangeVal.innerHTML = 3;
     sliderDifficulty = 3;
+
+    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel.innerHTML = "Sort By:";
+    dropdownBtn = document.getElementById("droppedBtns");
+    dropdownBtn.style.display = "none";
+
     console.log("Cards Reset")
+   
     showCards();
 }
 
-function dropdownMenu(){
+// Sort feature
+function sortDropdownMenu(){
+    dropdownBtn = document.getElementById("droppedBtns");
     
+    if (dropdownBtn.style.display == "none"){
+        dropdownBtn.style.display = "block";
+        console.log("Dropdown Menu Shown")
+    }
+    else {
+        dropdownBtn.style.display = "none";
+        console.log("Dropdown Menu Hidden")
+    }
 }
 
+function sortByName(){
+    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel.innerHTML = "Sort By:";
 
+    moves.sort(function(a, b){
+        const moveA = a.name.toUpperCase();
+        const moveB = b.name.toUpperCase();
 
+        if (moveA > moveB) {
+            return 1;
+        }
+        else if (moveA < moveB) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
+    });
+
+    dropdownBtnLabel.innerHTML = dropdownBtnLabel.innerHTML + " Name";
+
+    console.log("Sorted cards by move name")
+    showCards();
+
+}
 
 function sortByType(){
+    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel.innerHTML = "Sort By:";
+
     moves.sort(function(a, b){
         const moveA = a.type.toUpperCase();
         const moveB = b.type.toUpperCase();
@@ -288,7 +323,61 @@ function sortByType(){
         }
     });
 
+    dropdownBtnLabel.innerHTML = dropdownBtnLabel.innerHTML + " Type";
+
     console.log("Sorted cards by move type")
+    showCards();
+
+}
+
+function sortByDifficulty(){
+    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel.innerHTML = "Sort By:";
+
+    moves.sort(function(a, b){
+        const moveA = a.difficulty
+        const moveB = b.difficulty
+
+        if (moveA > moveB) {
+            return 1;
+        }
+        else if (moveA < moveB) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
+    });
+
+    dropdownBtnLabel.innerHTML = dropdownBtnLabel.innerHTML + " Difficulty";
+
+    console.log("Sorted cards by move difficulty")
+    showCards();
+
+}
+
+function sortByCreator(){
+    dropdownBtnLabel = document.getElementById("dropBtn");
+    dropdownBtnLabel.innerHTML = "Sort By:";
+
+    moves.sort(function(a, b){
+        const moveA = a.creator.toUpperCase();
+        const moveB = b.creator.toUpperCase();
+
+        if (moveA > moveB) {
+            return 1;
+        }
+        else if (moveA < moveB) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
+    });
+
+    dropdownBtnLabel.innerHTML = dropdownBtnLabel.innerHTML + " Creator";
+
+    console.log("Sorted cards by move creator")
     showCards();
 
 }
