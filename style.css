@@ -30,7 +30,13 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 5px;
+    margin: 15px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: .25s;
+    cursor: pointer;
 }
 
 .card-content {
@@ -88,6 +94,7 @@ button {
     padding-top: 30px;
     padding-bottom: 10px;
     justify-content: center;
+    background-color: white;
 }
 
 .searchBarContainer {
@@ -99,6 +106,12 @@ button {
     padding: 10px;
     height: 20px;
     align-items: center;
+    background-color: #ebebeb;
+    transition: background 0.1s;
+}
+
+.searchBarContainer:hover {
+    background:rgba(0, 0, 0, .12);
 }
 
 #searchBar {
@@ -108,6 +121,7 @@ button {
     margin-left: 5px;
     border: none;
     outline: none;
+    background-color: transparent;
 }
 
 .operations {
@@ -140,8 +154,8 @@ button {
 #slider {
     appearance: none;
     width: 300px;
-    height: 15px;
-    background: grey;
+    height: 10px;
+    background: #7084a1;
     border-radius: 15px;
     bottom: 100px;
     margin: 20px;
@@ -151,7 +165,8 @@ button {
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #04AA6D;
+    background: white;
+    border: 3px solid #7084a1;
     border-radius: 15px;
     cursor: pointer;
 }
@@ -172,10 +187,12 @@ button {
     margin: 10px;
     top: 50%;
     font-size: 20px;
+    transition: background 0.1s;
 }
 
 .filterSection span:hover {
     cursor: pointer;
+    background: rgba(0, 0, 0, .12);
 }
 
 .sortBtn {
@@ -187,10 +204,12 @@ button {
     margin: 10px;
     top: 41px;
     right: 10vw;
+    transition: background 0.1s;
 }
 
 .sortBtn:hover {
     cursor: pointer;
+    background: rgba(0, 0, 0, .12);
 }
 
 .sortContainer {
@@ -232,10 +251,12 @@ button {
     font-size: 20px;
     top: 42px;
     right: 3vw;
+    transition: background 0.1s;
 }
 
 .resetBtn:hover {
     cursor: pointer;
+    background: rgba(0, 0, 0, .12);
 }
 
 #result-number {
