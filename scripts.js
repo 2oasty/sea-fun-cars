@@ -32,9 +32,9 @@ const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/
 // This is an array of strings (TV show titles)
 let moves = [
 
-    { name: "Safety Vault", desc: "Will Smith", type: "Vault", difficulty: 1, creator: "?", image: FRESH_PRINCE_URL },
+    { name: "Safety Vault", desc: "Will Smith", type: "Roll", difficulty: 1, creator: "?", image: FRESH_PRINCE_URL },
     { name: "Speed Vault", desc: "Larry?", type: "Vault", difficulty: 2, creator: "?", image: CURB_POSTER_URL },
-    { name: "Dash Vault", desc: "Pink", type: "Vault", difficulty: 3, creator: "?", image: EAST_LOS_HIGH_POSTER_URL },
+    { name: "Dash Vault", desc: "Pink", type: "Floor", difficulty: 3, creator: "?", image: EAST_LOS_HIGH_POSTER_URL },
     //    {name: "Kong Vault", type: "Vault", difficulty: 1, creator: ""},
     //    {name: "Reverse Safety Vault", type: "Vault", difficulty: 1, creator: ""},
     //    {name: "Reverse Vault", type: "Vault", difficulty: 1, creator: ""},
@@ -98,7 +98,9 @@ let moves = [
     //    {name: "Speed Vault", type: "Vault", difficulty: 1, creator: ""},
     //    {name: "Speed Vault", type: "Vault", difficulty: 1, creator: ""},
 ];
-let movesCopy = moves;
+
+// Create deep copy
+let movesCopy = [...moves];
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 
@@ -197,7 +199,7 @@ const difficultyFive = moves.filter(move => move.difficulty == 5);
 
 function filterDifficulty(){
 
-    console.log("Displaying cards for difficulty: ", sliderDifficulty)
+    console.log("Filtered cards for difficulty: ", sliderDifficulty)
     let numResults = document.getElementById("result-number");
     numResults.style.display = 'block';
     numResults.innerHTML = "Number of results: ";
@@ -259,5 +261,34 @@ function resetFilter(){
     const rangeVal = document.getElementById("rangeValue");
     rangeVal.innerHTML = 3;
     sliderDifficulty = 3;
+    console.log("Cards Reset")
     showCards();
+}
+
+function dropdownMenu(){
+    
+}
+
+
+
+
+function sortByType(){
+    moves.sort(function(a, b){
+        const moveA = a.type.toUpperCase();
+        const moveB = b.type.toUpperCase();
+
+        if (moveA > moveB) {
+            return 1;
+        }
+        else if (moveA < moveB) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
+    });
+
+    console.log("Sorted cards by move type")
+    showCards();
+
 }
