@@ -27,7 +27,7 @@
 
 
 
-
+// Image links
 const LACHE_URL = "https://i.ytimg.com/vi/FuNZG4yF1jo/hqdefault.jpg";
 const DEVIL_DROP_URL = "https://i.ytimg.com/vi/sPtaINcJ56Q/sddefault.jpg";
 const CAT_HANG_URL = "https://i.ytimg.com/vi/hARvGWWcPZA/hqdefault.jpg";
@@ -249,7 +249,10 @@ function onLoad(){
 
     const searchBar = document.getElementById("searchBar");
     searchBar.addEventListener("keyup", (event) => {
-        searchedValue = event.target.value
+        searchedValue = event.target.value;
+        if (event.key == "Enter") {
+            filterCards();
+        }
     });
 
     const checkboxValue = document.getElementById("difficultyCheck");
@@ -346,13 +349,13 @@ function resetFilter(){
 
     const searchBarInput = document.getElementById("searchBar");
     searchBarInput.value = "";
+    searchedValue = "";
 
     const checkboxValue = document.getElementById("difficultyCheck");
     checkboxValue.checked = false;
     isChecked = false;
     const diffText = document.querySelector(".difficultySection");
     diffText.style.filter = "opacity(30%)";
-
 
     console.log("Cards Reset")
    
