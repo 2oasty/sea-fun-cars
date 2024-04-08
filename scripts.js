@@ -446,3 +446,15 @@ function sortByDifficulty(){
     console.log("Sorted cards by move difficulty")
     showCards();
 }
+
+function filterColorChange() {
+    const diffText = document.querySelector(".difficultySection");
+    if (isChecked == false) {
+        // diffText.style.color = "black";
+        diffText.style.filter = "opacity(100%)";
+    }
+    else if (isChecked == true) {
+        // diffText.style.color = "#d1d1d1";
+        diffText.style.filter = "opacity(30%)";
+    }
+}

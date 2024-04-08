@@ -112,12 +112,14 @@ button {
 }
 
 .searchBarContainer {
-    width: 80%;
+    width: 92%;
     display: flex;
     position: relative;
     border: 3px solid #666;
     border-radius: 25px;
     padding: 10px;
+    margin-top: 20px;
+    margin-left: 15px;
     height: 20px;
     align-items: center;
     background-color: #ebebeb;
@@ -144,20 +146,22 @@ button {
     align-items: center;
     border-bottom: 5px solid #666;
     padding: 40px;
-    padding-right:50px;
-    padding-left:50px;
+    padding-right:30px;
+    padding-left:30px;
     background-color: white;
 }
 
 .difficultySection {
     position: relative;
     display: inline-block;
+    filter: opacity(30%);
 }
 
 #difficultyCheck {
     margin: 10px;
+    margin-left: 20px;
     cursor: pointer;
-    transform: scale(1.5);
+    transform: scale(1.6);
 }
 
 .difficultySection p {
@@ -201,19 +205,19 @@ button {
     cursor: pointer;
 }
 
-.difficultySection span {
+.filterBtn {
     border: 3px solid #666;
     border-radius: 25px;
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    margin: 10px;
+    margin: 30px;
     top: 50%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
 }
 
-.difficultySection span:hover {
+.filterBtn:hover {
     cursor: pointer;
     background: rgba(0, 0, 0, .12);
     transition: 0.1s;
@@ -277,7 +281,6 @@ button {
     margin: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
-    /* top: 42px; */
     right: 3vw;
 }
 

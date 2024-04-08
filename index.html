@@ -29,37 +29,38 @@
                 <input id="searchBar" type="text" placeholder="Search for a move" />
             </div>
 
+            <input type="checkbox" id="difficultyCheck" onclick="filterColorChange();">
             <div class="difficultySection">
-                <input type="checkbox" id="difficultyCheck">
                 <p>Filter by Difficulty:</p>
                 <p id="rangeValue">3</p>
                 <input class="mySlider" id="slider" type="range" min="1" max="5" value="3" step="1"
                     oninput="rangeValue.innerText = this.value" />
-                <span onclick="filterCards();">Filter</span>
+
             </div>
         </div>
 
-        <!-- <div class="operations"> -->
+        <div class="filterBtn" onclick="filterCards();">
+            <span >Filter</span>
+        </div>
 
-            <div class="sortBtn" onclick="sortDropdownMenu();">
-                <div class="sortContainer">
-                    <span class="material-symbols-outlined">sort</span>
+        <div class="sortBtn" onclick="sortDropdownMenu();">
+            <div class="sortContainer">
+                <span class="material-symbols-outlined">sort</span>
 
-                    <span class="sortText">Sort By:</span>
-                </div>
-
-                <div id="droppedBtns" style="display:none; position:absolute">
-                    <span style="display:block" onclick="sortByName();">Name</span>
-                    <span style="display:block" onclick="sortByType();">Type</span>
-                    <span style="display:block" onclick="sortByDifficulty();">Difficulty</span>
-                </div>
+                <span class="sortText">Sort By:</span>
             </div>
 
-            <div class="resetBtn" onclick="resetFilter();">
-                <span>Reset</span>
+            <div id="droppedBtns" style="display:none; position:absolute">
+                <span style="display:block" onclick="sortByName();">Name</span>
+                <span style="display:block" onclick="sortByType();">Type</span>
+                <span style="display:block" onclick="sortByDifficulty();">Difficulty</span>
             </div>
-<!-- 
-        </div> -->
+        </div>
+
+        <div class="resetBtn" onclick="resetFilter();">
+            <span>Reset</span>
+        </div>
+
     </div>
 
     <div id="result-number" style="display:none">
