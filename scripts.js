@@ -35,74 +35,77 @@ const REVERSESAFETY = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prin
 // This is an array of strings (TV show titles)
 let moves = [
 
-    { name: "Safety Vault", desc: "Will Smith", type: "Roll", difficulty: 1, creator: "?", image: FRESH_PRINCE_URL },
-    { name: "Speed Vault", desc: "Larry?", type: "Vault", difficulty: 2, creator: "?", image: CURB_POSTER_URL },
-    { name: "Dash Vault", desc: "Pink", type: "Floor", difficulty: 3, creator: "?", image: EAST_LOS_HIGH_POSTER_URL },
-    { name: "Kong Vault", desc: "Will Smith", type: "Jump", difficulty: 2, creator: "?", image: KONG },
-    { name: "Reverse Safety Vault", desc: "Larry?", type: "Vault", difficulty: 4, creator: "?", image: REVERSE },
-    { name: "Reverse Vault", desc: "Pink", type: "Bar", difficulty: 5, creator: "?", image: REVERSESAFETY },
-    { name: "Kong Vault", desc: "Will Smith", type: "Jump", difficulty: 2, creator: "?", image: KONG },
-    { name: "Reverse Safety Vault", desc: "Larry?", type: "Vault", difficulty: 4, creator: "?", image: REVERSE },
-    { name: "Reverse Vault", desc: "Pink", type: "Bar", difficulty: 5, creator: "?", image: REVERSESAFETY },
-    //    {name: "Lazy Vault", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Thief Vault", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Shoulder Roll", type: "Roll", difficulty: 1, creator: ""},
-    //    {name: "Reverse Shoulder Roll", type: "Roll", difficulty: 1, creator: ""},
-    //    {name: "Dive Roll", type: "Roll", difficulty: 1, creator: ""},
-    //    {name: "Barrel Roll", type: "Roll", difficulty: 1, creator: ""},
-    //    {name: "360 Dive Roll", type: "Roll", difficulty: 1, creator: ""},
-    //    {name: "Forward Roll", type: "Roll", difficulty: 1, creator: ""},
-    //    {name: "Backwards Roll", type: "Roll", difficulty: 1, creator: ""},
-    //    {name: "Tic Tac", type: "Wall", difficulty: 1, creator: ""},
-    //    {name: "Wall Run", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Wall Run 270", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Cathang", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Wall Pounce", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Euro Step", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Climb Up", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Palm Spin", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Wall Spin", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Wall Flip", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Devil Drop", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Angel Drop", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Buddha Drop", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Palm Flip", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Pimp Flip", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Palm Gainer", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Trinity Flip", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Wall Full", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Inward Front", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Inward Side", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Precision Jump", type: "Jump", difficulty: 1, creator: ""},
-    //    {name: "Stride", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Crane Jump", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Ghost Stride", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "360 Precision", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Lache", type: "Bar", difficulty: 1, creator: ""},
-    //    {name: "Underbar", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Pullover", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Bar Kip", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Muscle Up", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Flyaway", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Swing Cast", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Flyaway Full", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Kumquat", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Cartwheel", type: "Floor", difficulty: 1, creator: ""},
-    //    {name: "Scoot", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Round Off", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Back Handspring", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Front Handspring", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Aerial", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Raiz", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Sideflip", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Backflip", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Frontflip", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Arabian", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Speed Vault", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Speed Vault", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Speed Vault", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Speed Vault", type: "Vault", difficulty: 1, creator: ""},
-    //    {name: "Speed Vault", type: "Vault", difficulty: 1, creator: ""},
+    { name: "Lache", desc: "Fundamental bar skill leading to lache to precision, lache to cat hang, and flyaways.", type: "Bar", difficulty: 2, image: FRESH_PRINCE_URL },
+    { name: "Devil Drop", desc: "Frontflip from a cat hang. Can be done on walls or vertical bars.", type: "Wall", difficulty: 5, image: CURB_POSTER_URL },
+    { name: "Cat Hang", desc: "Fundamental wall skill involving holding onto a wall's edge while feet pressed into wall.", type: "Wall", difficulty: 1, image: EAST_LOS_HIGH_POSTER_URL },
+    { name: "Wall Flip", desc: "Running up a wall and doing a backflip off of it. Often portayed in movie stunts.", type: "Wall", difficulty: 4, image: KONG },
+    { name: "Thief Vault", desc: "Variation of lazy vault in which outer leg swings over first.", type: "Vault", difficulty: 2, image: REVERSE },
+    { name: "Pimp Flip", desc: "From sitting on the edge of something, swinging body down, and backflipping.", type: "Wall", difficulty: 4, image: REVERSESAFETY },
+    { name: "Inward Front", desc: "Running at a wall, pressing foot against all, and fronflipping off wall.", type: "Wall", difficulty: 5, image: KONG },
+    { name: "Dive Roll", desc: "Jumping and diving towards the ground into a shoulder roll.", type: "Roll", difficulty: 3, image: REVERSE },
+    { name: "Crane Jump", desc: "Landing on a wall with one foot on top, the other hanging down.", type: "Jump", difficulty: 2, image: REVERSESAFETY },
+    { name: "Ghost Stride", desc: "Stride variation involving switching leg midair, landing on same foot you took off of.", type: "Jump", difficulty: 3, image: REVERSESAFETY },
+    { name: "Cheat Gainer", desc: "Tricking move prerequisite for corks. Involves swinging leg over shoulder in a cheated backflip.", type: "Floor", difficulty: 3, image: REVERSESAFETY },
+    { name: "Wall Spin", desc: "Variation of palm spin involving placing both hands on wall and rotating body around the hands.", type: "Wall", difficulty: 3, image: REVERSESAFETY },
+    { name: "Euro Step", desc: "Starting in a cat hang, stepping up the wall, and leaping to another wall behind you.", type: "Wall", difficulty: 3, image: REVERSESAFETY },
+    { name: "B-Twist", desc: "Horizontal twist starting with chest facing the ground.", type: "Floor", difficulty: 4, image: REVERSESAFETY },
+    { name: "Raiz", desc: "A tricking move involving flipping body with chest facing sky similar to barell roll.", type: "Floor", difficulty: 4, image: REVERSESAFETY },
+    { name: "Reverse Vault", desc: "Fundamental vault involving placing one or both hands on object with back to object and vaulting it without feet touching.", type: "Vault", difficulty: 2, image: REVERSESAFETY },
+    { name: "Double Leg", desc: "Similar setup to a raiz, but flip being a piked sideflip.", type: "Floor", difficulty: 4, image: REVERSESAFETY },
+    { name: "Pullover", desc: "Gymnastics move involving pulling body up and over a bar in preparation of other bar moves.", type: "Bar", difficulty: 2, image: REVERSESAFETY },
+    { name: "Tunnel Flip", desc: "Similar to doing a sideflip in the direction your chest is facing.", type: "Floor", difficulty: 3, image: REVERSESAFETY },
+    { name: "Backflip", desc: "A somersault involving a backwards rotation.", type: "Floor", difficulty: 3, image: REVERSESAFETY },
+    { name: "Castback", desc: "Starting with hips at the bar level and hands holding body above the bar, casting legs backwards into a backflip.", type: "Wall", difficulty: 4, image: REVERSESAFETY },
+    { name: "Scoot", desc: "Tricking move to gain power for leg swings. Involves placing hand on floor and swinging inside leg through to generate power for outside leg.", type: "Floor", difficulty: 1, image: REVERSESAFETY },
+    { name: "360 Precision", desc: "A precision involving a 360 degree jump from platform to platform.", type: "Jump", difficulty: 4, image: REVERSESAFETY },
+    { name: "Angel Drop", desc: "Starting from a cat hang, involves steping up with one leg into a backflip off the wall.", type: "Wall", difficulty: 5, image: REVERSESAFETY },
+    { name: "Speed Vault", desc: "Fundamental vault. Essentially a safety vault without the placement of legs on the platform.", type: "Vault", difficulty: 1, image: REVERSESAFETY },
+    { name: "Arabian", desc: "A flip starting out as a backflip and finishing as a front flip.", type: "Floor", difficulty: 4, image: REVERSESAFETY },
+    { name: "Shoulder Roll", desc: "Fundamental movement to parkour, roll used to disperse forces from drops and continue momentum forward.", type: "Roll", difficulty: 2, image: REVERSESAFETY },
+    { name: "Buddha Drop", desc: "Starting from a cat hang, involves steping up with one leg into a sideflip into the wall.", type: "Wall", difficulty: 5, image: REVERSESAFETY },
+    { name: "Webster", desc: "Variation of a frontflip involving a split step start and kicking one leg backwards for the momentum of the flip.", type: "Floor", difficulty: 4, image: REVERSESAFETY },
+    { name: "Climb Up", desc: "Fundamental movement to parkour. A technique used to get from a cat hang to the top of a wall.", type: "Wall", difficulty: 2, image: REVERSESAFETY },
+    { name: "Aerial", desc: "Gymnastics move involving a no-handed cartwheel.", type: "Floor", difficulty: 2, image: REVERSESAFETY },
+    { name: "Wall Run 270", desc: "Variation of a basic wall run involving stepping up one wall and doing a 270 degree turn to grab another wall.", type: "Wall", difficulty: 2, image: REVERSESAFETY },
+    { name: "Barrel Roll", desc: "A sideways roll horizontally across the back.", type: "Roll", difficulty: 1, image: REVERSESAFETY },
+    { name: "Lazy Vault", desc: "Fundamental vault. Involves approaching a platform from the side, placing a hand on the platform, and swinging inside, then outside leg over.", type: "Vault", difficulty: 1, image: REVERSESAFETY },
+    { name: "Cork", desc: "A tricking move with the same beginning as the cheat gainer, but then twisting once in the air.", type: "Floor", difficulty: 4, image: REVERSESAFETY },
+    { name: "Dash Vault", desc: "Fundamental vault. Involves approaching a platform from the front, kicking both legs up and over the platform, and pushing it away as you pass it.", type: "Vault", difficulty: 2, image: REVERSESAFETY },
+    { name: "Bar Kip", desc: "Gymnastics move involving bringing legs up to bar and utilizing momentum to swing body up and bring hips to the bar.", type: "Bar", difficulty: 3, image: REVERSESAFETY },
+    { name: "Reverse Safety Vault", desc: "Fundamental vault involving approaching a platform, turning, and doing a safety vault in reverse.", type: "Vault", difficulty: 2, image: REVERSESAFETY },
+    { name: "Forward Roll", desc: "Gymnastics move prerequisite for frontflips. Involves tucking chin to the chest and rolling forwards on the ground.", type: "Roll", difficulty: 1, image: REVERSESAFETY },
+    { name: "Gainer", desc: "A backflip done both moving and facing forward.", type: "Floor", difficulty: 4, image: REVERSESAFETY },
+    { name: "Flyaway Full", desc: "Variation of a flyaway where instead of a backflip, a back full is performed.", type: "Bar", difficulty: 5, image: REVERSESAFETY },
+    { name: "Swing Cast", desc: "Starting by swinging back and forth on a bar, on the back swing, the bar is let go of and a backflip is done.", type: "Bar", difficulty: 5, image: REVERSESAFETY },
+    { name: "Wall Pounce", desc: "Fundamental movement to parkour. A technique to bounce off a wall and ensure a cat hang is safely engaged or as a safety measure.", type: "Wall", difficulty: 1, image: REVERSESAFETY },
+    { name: "A-Twist", desc: "A twist involving starting with an aerial and rotating once upside down.", type: "Floor", difficulty: 4, image: REVERSESAFETY },
+    { name: "Frontflip", desc: "A somersault involving a forwards rotation.", type: "Floor", difficulty: 3, image: REVERSESAFETY },
+    { name: "Inward Side", desc: "Involves kicking off of a wall and doing a sideflip into the wall.", type: "Wall", difficulty: 4, image: REVERSESAFETY },
+    { name: "Muscle Up", desc: "A technique utilizing the upper body to bring oneself from hanging on a bar to their hips at the bar.", type: "Bar", difficulty: 3, image: REVERSESAFETY },
+    { name: "Palm Gainer", desc: "Involves tapping a wall with one hand and backflipping next to it, typically a forwards backflip.", type: "Wall", difficulty: 4, image: REVERSESAFETY },
+    { name: "Precision Jump", desc: "Fundamental movement to parkour. Involves jumping from one thin platform to another.", type: "Jump", difficulty: 1, image: REVERSESAFETY },
+    { name: "Kumquat", desc: "Flip performed by sitting on the top of a bar, leaning back, and backflipping off.", type: "Bar", difficulty: 4, image: REVERSESAFETY },
+    { name: "Backward Roll", desc: "Gymnastics move prerequisite for backflips. Involves sitting on the ground, bringing knees to chest, and rolling backwards.", type: "Roll", difficulty: 1, image: REVERSESAFETY },
+    { name: "Palm Spin", desc: "A movement involving placing hands on a platform, and rotating body around arms above the platform.", type: "Wall", difficulty: 2, image: REVERSESAFETY },
+    { name: "Back Handspring", desc: "Gymnastics move involving lunging back, placing hands on ground, rotating body, and pushing off floor to feet.", type: "Floor", difficulty: 3, image: REVERSESAFETY },
+    { name: "360 Dive Roll", desc: "A dive roll involving a horizontal 360 degree rotation before making contact with the ground", type: "Roll", difficulty: 4, image: REVERSESAFETY },
+    { name: "Underbar", desc: "Fundamental movement to parkour. A technique involving jumping through vertical gap legs first, and using hands to grab top and guide body through.", type: "Bar", difficulty: 1, image: REVERSESAFETY },
+    { name: "Sideflip", desc: "Flip done sideways.", type: "Floor", difficulty: 3, image: REVERSESAFETY },
+    { name: "Reverse Shoulder Roll", desc: "Shoulder roll done in reverse. Used to keep momentum going backwards and avoid injury.", type: "Roll", difficulty: 2, image: REVERSESAFETY },
+    { name: "Flyaway", desc: "Movement involving swinging back and forth on a bar and on the forward swing, letting go and doing a backflip.", type: "Bar", difficulty: 4, image: REVERSESAFETY },
+    { name: "Butterfly Kick", desc: "A tricking move involving swinging chest down and back up and bringing legs off ground. Prerequisite for B-twist.", type: "Floor", difficulty: 2, image: REVERSESAFETY },
+    { name: "Round Off", desc: "Gymnastics move involving a similar movement to a cartwheel, but snapping legs down at the end to face backwards.", type: "Floor", difficulty: 2, image: REVERSESAFETY },
+    { name: "Wall Run", desc: "Fundamental movement to parkour. Involves using momentum to either run up or alongside a vertical surface.", type: "Wall", difficulty: 2, image: REVERSESAFETY },
+    { name: "Cartwheel", desc: "Gymnastics move involving a sideways rotation of the body, placing hands on floor one at a time and bringing legs over.", type: "Floor", difficulty: 1, image: REVERSESAFETY },
+    { name: "Tic Tac", desc: "Fundamental movement to parkour. Involves pushing off a wall with foot and launching in another direction.", type: "Wall", difficulty: 1, image: REVERSESAFETY },
+    { name: "Safety Vault", desc: "Fundamental vault. Involves placing hand and outside leg on platform and passing inside leg through to other side.", type: "Vault", difficulty: 1, image: REVERSESAFETY },
+    { name: "Stride", desc: "Fundamental movement to parkour. As the name implies, involves taking long strides from platform to platform.", type: "Jump", difficulty: 1, image: REVERSESAFETY },
+    { name: "Wall Full", desc: "Involves running up wall and doing a backfull off.", type: "Wall", difficulty: 5, image: REVERSESAFETY },
+    { name: "Kong Vault", desc: "Fundamental vault. Involves approaching platform from front, placing both hands on it, and passing both legs through hands.", type: "Vault", difficulty: 2, image: REVERSESAFETY },
+    { name: "Trinity Flip", desc: "Involves placing a foot on a wall and sideflipping away from the wall. Flip as seen in The Matrix.", type: "Wall", difficulty: 4, image: REVERSESAFETY },
+    { name: "Palm Flip", desc: "Movement involving placing both hands on a vertical surface, jumping, pushing off wall, and doing a backflip.", type: "Wall", difficulty: 4, image: REVERSESAFETY },
+    { name: "Back Full", desc: "A twist done flipping backwards and twisting. Also known as a backflip 360.", type: "Floor", difficulty: 4, image: REVERSESAFETY }
+    
 ];
 
 // Create deep copy
@@ -124,15 +127,14 @@ function showCards() {
         let description = moves[i].desc
         let type = moves[i].type
         let difficulty = moves[i].difficulty
-        let creator = moves[i].creator
 
         const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, header, imageURL, description, type, difficulty, creator); // Edit title and image
+        editCardContent(nextCard, header, imageURL, description, type, difficulty); // Edit title and image
         cardContainer.appendChild(nextCard); // Add new card to the container
     }
 }
 
-function editCardContent(card, newHeader, newImageURL, newCardDesc, newCardType, newCardDifficulty, newCardCreator) {
+function editCardContent(card, newHeader, newImageURL, newCardDesc, newCardType, newCardDifficulty) {
     card.style.display = "block";
 
     const cardHeader = card.querySelector("h2");
@@ -150,9 +152,6 @@ function editCardContent(card, newHeader, newImageURL, newCardDesc, newCardType,
 
     const cardDifficulty = card.querySelectorAll("li")[1];
     cardDifficulty.textContent = "Difficulty: " + newCardDifficulty;
-
-    const cardCreator = card.querySelectorAll("li")[2];
-    cardCreator.textContent = "Creator: " + newCardCreator;
 
 
 
@@ -378,33 +377,6 @@ function sortByDifficulty(){
 
 }
 
-function sortByCreator(){
-    dropdownBtnLabel = document.querySelector(".sortText");
-    dropdownBtnLabel.innerHTML = "Sort By:";
-
-    moves.sort(function(a, b){
-        const moveA = a.creator.toUpperCase();
-        const moveB = b.creator.toUpperCase();
-
-        if (moveA > moveB) {
-            return 1;
-        }
-        else if (moveA < moveB) {
-            return -1;
-        }
-        else {
-            return 0;
-        }
-    });
-
-    dropdownBtnLabel.innerHTML = dropdownBtnLabel.innerHTML + " Creator";
-
-    console.log("Sorted cards by move creator")
-    showCards();
-
-}
-
-
 function searchMove(searchValue){
 
     console.log("Searching for moves including:", searchValue)
@@ -429,7 +401,7 @@ function searchMove(searchValue){
     }
 
     const searchBarInput = document.getElementById("searchBar");
-    if (searchBarInput.value == "") {
+    if (searchBarInput.value == "" && moves.length == movesCopy.length) {
         numResults.style.display = 'none';
     }
 
