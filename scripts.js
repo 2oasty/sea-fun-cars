@@ -347,6 +347,9 @@ function resetFilter(){
     const searchBarInput = document.getElementById("searchBar");
     searchBarInput.value = "";
 
+    const checkboxValue = document.getElementById("difficultyCheck");
+    checkboxValue.checked = false;
+
     console.log("Cards Reset")
    
     showCards();
