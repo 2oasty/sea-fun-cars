@@ -325,6 +325,11 @@ function filterCards() {
         numResults.innerHTML = numResults.innerHTML + moves.length;
     }
 
+    const dropdownBtnLabel = document.querySelector(".sortText");
+    dropdownBtnLabel.innerHTML = "Sort By:";
+    const dropdownBtn = document.getElementById("droppedBtns");
+    dropdownBtn.style.display = "none";
+
     showCards()
 }
 
