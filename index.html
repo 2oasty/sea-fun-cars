@@ -17,46 +17,49 @@
     </header>
 
     <div class="homeImage">
-        <img src="https://images.pexels.com/photos/5985241/pexels-photo-5985241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-    </div>
-
-    <div class="searchBarSection">
-        <div class="searchBarContainer">
-            <span class="material-symbols-outlined">search</span>
-            <input id="searchBar" type="text" placeholder="Search for a move" />
-        </div>
+        <img
+            src="https://images.pexels.com/photos/5985241/pexels-photo-5985241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
     </div>
 
     <div class="operations">
+        <div class="filtersSection">
 
-        <input type="checkbox" id="difficultyCheck">
-
-        <div class="filterSection">
-            <p>Filter by Difficulty:</p>
-            <p id="rangeValue">3</p>
-            <input class="mySlider" id="slider" type="range" min="1" max="5" value="3" step="1"
-                oninput="rangeValue.innerText = this.value" />
-            <span onclick="filterCards();">Filter</span>
-        </div>
-
-        <div class="sortBtn" onclick="sortDropdownMenu();">
-            <div class="sortContainer">
-                <span class="material-symbols-outlined">sort</span>
-
-                <span class="sortText">Sort By:</span>
+            <div class="searchBarContainer">
+                <span class="material-symbols-outlined">search</span>
+                <input id="searchBar" type="text" placeholder="Search for a move" />
             </div>
 
-            <div id="droppedBtns" style="display:none; position:absolute">
-                <span style="display:block" onclick="sortByName();">Name</span>
-                <span style="display:block" onclick="sortByType();">Type</span>
-                <span style="display:block" onclick="sortByDifficulty();">Difficulty</span>
+            <div class="difficultySection">
+                <input type="checkbox" id="difficultyCheck">
+                <p>Filter by Difficulty:</p>
+                <p id="rangeValue">3</p>
+                <input class="mySlider" id="slider" type="range" min="1" max="5" value="3" step="1"
+                    oninput="rangeValue.innerText = this.value" />
+                <span onclick="filterCards();">Filter</span>
             </div>
         </div>
 
-        <div class="resetBtn" onclick="resetFilter();">
-            <span>Reset</span>
-        </div>
+        <!-- <div class="operations"> -->
 
+            <div class="sortBtn" onclick="sortDropdownMenu();">
+                <div class="sortContainer">
+                    <span class="material-symbols-outlined">sort</span>
+
+                    <span class="sortText">Sort By:</span>
+                </div>
+
+                <div id="droppedBtns" style="display:none; position:absolute">
+                    <span style="display:block" onclick="sortByName();">Name</span>
+                    <span style="display:block" onclick="sortByType();">Type</span>
+                    <span style="display:block" onclick="sortByDifficulty();">Difficulty</span>
+                </div>
+            </div>
+
+            <div class="resetBtn" onclick="resetFilter();">
+                <span>Reset</span>
+            </div>
+<!-- 
+        </div> -->
     </div>
 
     <div id="result-number" style="display:none">
