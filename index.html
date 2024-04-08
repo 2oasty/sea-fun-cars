@@ -29,12 +29,14 @@
 
     <div class="operations">
 
+        <input type="checkbox" id="difficultyCheck">
+
         <div class="filterSection">
             <p>Filter by Difficulty:</p>
             <p id="rangeValue">3</p>
             <input class="mySlider" id="slider" type="range" min="1" max="5" value="3" step="1"
                 oninput="rangeValue.innerText = this.value" />
-            <span onclick="filterDifficulty();">Filter</span>
+            <span onclick="filterCards();">Filter</span>
         </div>
 
         <div class="sortBtn" onclick="sortDropdownMenu();">
@@ -65,8 +67,8 @@
 
     </div>
 
-    <div class="card" style="display: none">
-        <div onclick="clickToShow(this)" class="card-content">
+    <div onclick="clickToShow(this)" class="card" style="display: none">
+        <div class="card-content">
             <h2>TV Show Title</h2>
             <div>
                 <img src="" alt="TV Show Poster" />

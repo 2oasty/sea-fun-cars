@@ -99,7 +99,7 @@ const TRINITY_FLIP_URL = "https://i.ytimg.com/vi/vInITvGS0qE/hqdefault.jpg";
 const PALM_FLIP_URL = "https://i.ytimg.com/vi/KAg6ZapawIM/hqdefault.jpg";
 const BACK_FULL_URL = "https://i.ytimg.com/vi/lq97QJgcz6U/hqdefault.jpg";
 
-// This is an array of strings (TV show titles)
+// Dataset defined by array of objects
 let moves = [
 
     { name: "Lache", desc: "Fundamental bar skill leading to lache to precision, lache to cat hang, and flyaways.", type: "Bar", difficulty: 2, image: LACHE_URL },
@@ -175,14 +175,22 @@ let moves = [
     
 ];
 
-// Create deep copy
+// Create copies of dataset
 let movesCopy = [...moves];
 let filteredMoves = [...moves];
-// Your final submission should have much more data than this, and 
-// you should use more than just an array of strings to store it all.
 
+// Initialize variables
+let sliderDifficulty = 3;
+let sliderDifficultyCopy = sliderDifficulty;
+let searchedValue = "";
+let isChecked = false;
+const difficultyOne = moves.filter(move => move.difficulty == 1);
+const difficultyTwo = moves.filter(move => move.difficulty == 2);
+const difficultyThree = moves.filter(move => move.difficulty == 3);
+const difficultyFour = moves.filter(move => move.difficulty == 4);
+const difficultyFive = moves.filter(move => move.difficulty == 5);
 
-// This function adds cards the page to display the data in the array
+// This function adds cards to the page to display the data in the array
 function showCards() {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
@@ -220,8 +228,6 @@ function editCardContent(card, newHeader, newImageURL, newCardDesc, newCardType,
     const cardDifficulty = card.querySelectorAll("li")[1];
     cardDifficulty.textContent = "Difficulty: " + newCardDifficulty;
 
-
-
     // You can use console.log to help you debug!
     // View the output by right clicking on your website,
     // select "Inspect", then click on the "Console" tab
@@ -235,21 +241,26 @@ function onLoad(){
     showCards();
 
     // Adds slider listener after page loaded, obtains value of slider
-    sliderDifficulty = 3;
     const sliderElement = document.getElementById("slider");
     sliderElement.addEventListener("change", (event) => {
-        sliderDifficulty = event.target.value
+        sliderDifficulty = event.target.value;
+        sliderDifficultyCopy = sliderDifficulty
     });
 
     const searchBar = document.getElementById("searchBar");
     searchBar.addEventListener("keyup", (event) => {
-        searchMove(event.target.value)
+        searchedValue = event.target.value
     });
+
+    const checkboxValue = document.getElementById("difficultyCheck");
+    checkboxValue.addEventListener("change", (event) => {
+        isChecked = event.target.checked
+    })
 }
 
 // Function to allow clicking of div to hide and show card text
 function clickToShow(cardContentDiv) {
-    let list = cardContentDiv.getElementsByClassName("desc")[0]; // or .querySelector(".desc")
+    const list = cardContentDiv.querySelector(".desc");
 
     if (list.style.display == 'none') {
         list.style.display = 'block';
@@ -257,21 +268,21 @@ function clickToShow(cardContentDiv) {
     else {
         list.style.display = 'none';
     }
-
 }
 
-// Filter feature
-const difficultyOne = moves.filter(move => move.difficulty == 1);
-const difficultyTwo = moves.filter(move => move.difficulty == 2);
-const difficultyThree = moves.filter(move => move.difficulty == 3);
-const difficultyFour = moves.filter(move => move.difficulty == 4);
-const difficultyFive = moves.filter(move => move.difficulty == 5);
+// Function filters card by search and/or difficulty
+function filterCards() {
 
-function filterDifficulty(){
+    if (isChecked == false) {
+        sliderDifficulty = 0;
+    }
+    else {
+        sliderDifficulty = sliderDifficultyCopy;
+    }
 
-    console.log("Filtered cards for difficulty: ", sliderDifficulty)
-    let numResults = document.getElementById("result-number");
-    numResults.style.display = 'block';
+    console.log("Filtered cards for difficulty:", sliderDifficulty, "and text:", searchedValue)
+    const numResults = document.getElementById("result-number");
+    numResults.style.display = "block";
     numResults.innerHTML = "Number of results: ";
 
     if (sliderDifficulty == 1){
@@ -286,65 +297,54 @@ function filterDifficulty(){
     else if (sliderDifficulty == 4) {
         moves = difficultyFour;
     }
-    else {
+    else if (sliderDifficulty == 5) {
         moves = difficultyFive;
     }
+    else {
+        moves = movesCopy;
+    }
+
+    filteredMoves = moves.filter(move => {
+        return(move.name.toUpperCase().includes(searchedValue.toUpperCase()))
+    });
+
+    moves = filteredMoves;
 
     if (moves.length == 0){
         console.log("No results found")
         numResults.innerHTML = "No results found";
+    }
+    else if (moves.length == movesCopy.length){
+        numResults.style.display = "none";
     }
     else {
         console.log("Number of results: ", moves.length)
         numResults.innerHTML = numResults.innerHTML + moves.length;
     }
 
-    // switch(sliderDifficulty){
-    //     case 1:
-    //         console.log("ONE")
-    //         break;
-    //     case 2:
-    //         moves = difficultyTwo;
-    //         break;
-    //     case 3:
-    //         moves = difficultyThree;
-    //         break;
-    //     case 4:
-    //         moves = difficultyFour;
-    //         break;
-    //     case 5:
-    //         moves = difficultyFive;
-    //         break;
-    //     default:
-    //         moves = movesCopy;
-    // }
-
-    filteredMoves = [...moves];
-
-    showCards();
-
+    showCards()
 }
 
-
+// Function to reset cards and page to intial load
 function resetFilter(){
     moves = [...movesCopy];
     filteredMoves = [...movesCopy];
    
-    let numResults = document.getElementById("result-number");
+    const numResults = document.getElementById("result-number");
     numResults.style.display = 'none';
    
-    let sliderElement = document.getElementById("slider");
+    const sliderElement = document.getElementById("slider");
     sliderElement.value = 3;
-    let rangeVal = document.getElementById("rangeValue");
+    const rangeVal = document.getElementById("rangeValue");
     rangeVal.innerHTML = 3;
     sliderDifficulty = 3;
 
-    dropdownBtnLabel = document.querySelector(".sortText");
+    const dropdownBtnLabel = document.querySelector(".sortText");
     dropdownBtnLabel.innerHTML = "Sort By:";
-    dropdownBtn = document.getElementById("droppedBtns");
+    const dropdownBtn = document.getElementById("droppedBtns");
     dropdownBtn.style.display = "none";
 
-    let searchBarInput = document.getElementById("searchBar");
+    const searchBarInput = document.getElementById("searchBar");
     searchBarInput.value = "";
 
     console.log("Cards Reset")
@@ -352,9 +352,9 @@ function resetFilter(){
     showCards();
 }
 
-// Sort feature
+// Function to show and hide drop down for sort button
 function sortDropdownMenu(){
-    dropdownBtn = document.getElementById("droppedBtns");
+    const dropdownBtn = document.getElementById("droppedBtns");
     
     if (dropdownBtn.style.display == "none"){
         dropdownBtn.style.display = "block";
@@ -366,8 +366,9 @@ function sortDropdownMenu(){
     }
 }
 
+// Function to sort cards by move name
 function sortByName(){
-    dropdownBtnLabel = document.querySelector(".sortText");
+    const dropdownBtnLabel = document.querySelector(".sortText");
     dropdownBtnLabel.innerHTML = "Sort By:";
 
     moves.sort(function(a, b){
@@ -389,11 +390,11 @@ function sortByName(){
 
     console.log("Sorted cards by move name")
     showCards();
-
 }
 
+// Function to sort cards by move type
 function sortByType(){
-    dropdownBtnLabel = document.querySelector(".sortText");
+    const dropdownBtnLabel = document.querySelector(".sortText");
     dropdownBtnLabel.innerHTML = "Sort By:";
 
     moves.sort(function(a, b){
@@ -415,11 +416,11 @@ function sortByType(){
 
     console.log("Sorted cards by move type")
     showCards();
-
 }
 
+// Function to sort cards by move difficulty
 function sortByDifficulty(){
-    dropdownBtnLabel = document.querySelector(".sortText");
+    const dropdownBtnLabel = document.querySelector(".sortText");
     dropdownBtnLabel.innerHTML = "Sort By:";
 
     moves.sort(function(a, b){
@@ -441,39 +442,4 @@ function sortByDifficulty(){
 
     console.log("Sorted cards by move difficulty")
     showCards();
-
-}
-
-function searchMove(searchValue){
-
-    console.log("Searching for moves including:", searchValue)
-
-    const searchedMove = moves.filter(move => {
-        return(move.name.toUpperCase().includes(searchValue.toUpperCase()))
-    });
-
-    moves = searchedMove;
-
-    let numResults = document.getElementById("result-number");
-    numResults.style.display = 'block';
-    numResults.innerHTML = "Number of results: ";
-
-    if (moves.length == 0){
-        console.log("No results found")
-        numResults.innerHTML = "No results found";
-    }
-    else {
-        console.log("Number of results: ", moves.length)
-        numResults.innerHTML = numResults.innerHTML + moves.length;
-    }
-
-    const searchBarInput = document.getElementById("searchBar");
-    if (searchBarInput.value == "" && moves.length == movesCopy.length) {
-        numResults.style.display = 'none';
-    }
-
-    showCards();
-
-    moves = filteredMoves;
-
 }
