@@ -349,6 +349,10 @@ function resetFilter(){
 
     const checkboxValue = document.getElementById("difficultyCheck");
     checkboxValue.checked = false;
+    isChecked = false;
+    const diffText = document.querySelector(".difficultySection");
+    diffText.style.filter = "opacity(30%)";
+
 
     console.log("Cards Reset")
    
