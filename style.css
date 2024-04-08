@@ -5,16 +5,22 @@ body {
 }
 
 .main-header {
-    background-color: rgba(0, 0, 0, .3);
+    background-color: #7084a1;
     padding-bottom: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .title {
     text-align: center;
     margin: 0;
     font-size: 8em;
-    font-family: "Helvetica";
     font-weight: normal;
+    color: white;
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 2em;
     color: white;
 }
 
@@ -64,7 +70,7 @@ body {
 .footer {
     display: flex;
     justify-content: center;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: #7084a1;
     height: 50px;
     padding: 10px;
 }
@@ -90,9 +96,20 @@ button {
     cursor: pointer;
 }
 
+.homeImage {
+    display: flex;
+    justify-content: center;
+}
+
+.homeImage img {
+    width: 100vw;
+    height: 60vh;
+    object-fit: cover;
+}
+
 .searchBarSection {
     display: flex;
-    padding-top: 30px;
+    padding-top: 70px;
     padding-bottom: 10px;
     justify-content: center;
     background-color: white;
@@ -212,7 +229,7 @@ button {
     padding: 10px;
     margin: 10px;
     top: 41px;
-    right: 10vw;
+    right: 13vw;
 }
 
 .sortBtn:hover {
